@@ -23,6 +23,7 @@ export interface Notification {
   message: string;
   billId?: string;
   timestamp: string;
+  read?: boolean;
 }
 
 export type BillStatus = 'all' | 'pending' | 'paid' | 'autopay';

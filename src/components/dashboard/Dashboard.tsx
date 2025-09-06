@@ -5,8 +5,6 @@ import { BillCard } from './BillCard';
 import { FilterBar } from './FilterBar';
 import { NotificationsPanel } from './NotificationsPanel';
 import { OneClickPayButton } from './OneClickPayButton';
-import { WalletConnectButton } from './WalletConnectButton';
-import { RoadmapSection } from './RoadmapSection';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { LayoutGrid, List, TrendingUp, DollarSign, Calendar, Activity } from 'lucide-react';
@@ -73,22 +71,7 @@ export const Dashboard = () => {
   const autoPaidAmount = bills.filter(b => b.status === 'autopay').reduce((sum, bill) => sum + bill.amount, 0);
 
   return (
-    <div className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center gap-3">
-              <div className="text-2xl">⚡</div>
-              <h1 className="text-2xl font-bold text-gradient">Pulse</h1>
-              <span className="text-sm text-muted-foreground">Unified Bill Payment & AutoPay</span>
-            </div>
-            <WalletConnectButton />
-          </div>
-        </div>
-      </header>
-
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div className="space-y-8">
         {/* Stats Overview */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
           <Card className="gradient-card border-border">
@@ -296,9 +279,6 @@ export const Dashboard = () => {
           </div>
         </div>
 
-        {/* Roadmap Section */}
-        <RoadmapSection />
-      </main>
     </div>
   );
 };
